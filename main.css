@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+/* screen */
+canvas {
+	display: none;
+}
+#canvas {
+	display: block;
+	height: 200px;
+	width: 200px;
+	margin: 20px auto;
+	border: 1px solid green;
+}
+div#canvas {
+	position: relative;
+}
+#cursor {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	height: 3px;
+	width: 3px;
+	background: black;
+	box-shadow: 0 0 4px black;
+	border-radius: 50%;
+}
+
+/* controls */
+
+#controls {
+	height: 50px;
+}
+button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: green;
+	float: left;
+}
+button[data-role='vertical'] {
+	float: right;
+}

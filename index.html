@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML5 Etch-A-Sketch</title>
+	<link href='main.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<canvas></canvas>
+	<div id='canvas'>
+		<div id='cursor'></div>
+	</div>
+	<div id='controls'></div>
+
+	<script src='main.js'></script>
+	<script src='screen.js'></script>
+	<script src='controls.js'></script>
+	<script>
+		etchasketch.init({
+			'screenEl': document.getElementById("canvas"),
+			'cursorEl': document.getElementById("cursor"),
+			'controlsEl': document.getElementById("controls")
+		});
+	</script>
+</body>
+</html>
