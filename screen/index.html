@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML5 Etch-A-Sketch</title>
+	<link href='screen.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div id='screen'></div>
+
+	<script src='main.js'></script>
+	<script src='screen.js'></script>
+
+    <script>
+		etchasketch.init({
+			'screenEl': document.getElementById("screen"),
+			'listeners': [{
+				'type': 'postMessage',
+				'data': {
+					'url': '../controls/index.html'
+				}
+			}]
+		});
+	</script>
+</html>

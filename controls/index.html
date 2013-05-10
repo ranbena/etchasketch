@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML5 Etch-A-Sketch</title>
+	<link href='controls.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div id='controls'></div>
+
+	<script src='controls.js'></script>
+    <script>
+		var controls = new Controls();
+		controls.init({
+			'el': document.getElementById('controls')
+		});
+	</script>
+</html>

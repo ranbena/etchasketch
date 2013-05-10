@@ -7,11 +7,10 @@
 	};
 
 	function Controls() {
-		var el, onValueChange;
+		var el, socket;
 
 		this.init = function(cfg) {
 			el = cfg.el;
-			onValueChange = cfg.onValueChange;
 
 			createButton('vertical');
 			createButton('horizontal');
@@ -23,6 +22,13 @@
 				parentEl: el,
 				onValueChange: onValueChange
 			});
+		}
+
+		function onValueChange(type, ratio) {
+			window.parent.postMessage({
+				'buttonType': type,
+				'ratio': ratio
+			}, '*');
 		}
 	}
 

@@ -1,7 +1,7 @@
 function Screen() {
 	var el;
 
-	var LIMITS = {
+	var BOUNDS = {
 		'top' : {
 			'min': 0,
 			'max': 200,
@@ -15,8 +15,8 @@ function Screen() {
 	this.init = function(cfg) {
 		el = cfg.el;
 		cursor.init({
-			'el': cfg.cursorEl
-		})
+			'parentEl': el
+		});
 	};
 
 	this.onValueChange =function(isVertical, value) {
@@ -27,7 +27,10 @@ function Screen() {
 		var el, position;
 
 		this.init = function(cfg) {
-			el = cfg.el;
+			el = document.createElement('div');
+			el.setAttribute('class', 'cursor');
+			cfg.parentEl.appendChild(el);
+
 			position = {
 				top: el.offsetTop,
 				left: el.offsetLeft
@@ -35,10 +38,14 @@ function Screen() {
 		};
 
 		this.move = function(isVertical, value) {
-			var attr = isVertical ? 'top' : 'left',
-				newValue = position[attr] + value;
+			// determine style attribute
+			var attr = isVertical ? 'top' : 'left';
 
-			if (newValue <= LIMITS[attr].max && newValue >= LIMITS[attr].min) {
+			// add change value to current position
+			var newValue = position[attr] + value;
+
+			// keep it in bounds
+			if (newValue <= BOUNDS[attr].max && newValue >= BOUNDS[attr].min) {
 				position[attr] = newValue;
 				el.style[attr] = newValue+'px';	
 			}
